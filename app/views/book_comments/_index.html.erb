@@ -4,7 +4,7 @@
         <%= book_comment.user.name %>
         <%= book_comment.comment %>
       <% if book_comment.user == current_user %>
-      <%= link_to "Destroy", book_book_comment_path(book_comment.book.id, book_comment), method: :delete, local:false %>
-      <% end %>
+      <%= link_to "Destroy", book_book_comment_path(book_comment.book.id, book_comment), method: :delete, remote:true %>
       <% end %>
   </tr>
+ <% end %>
