@@ -7,6 +7,7 @@ class BooksController < ApplicationController
     @book_new = Book.new
     @book_comment = BookComment.new
     @book_comments = BookComment.all
+    impressionist(@book, nil, unique: [:ip_address])
   end
 
   def index
@@ -20,6 +21,7 @@ class BooksController < ApplicationController
       b.favorites.where(created_at: from...to).size <=>
       a.favorites.where(created_at: from...to).size
     }
+    @rank_tweets = Book.order(impressions_count: 'DESC')
   end
 
   def create
