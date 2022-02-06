@@ -13,6 +13,7 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.new
     @books = Book.all
+
     to  = Time.current.at_beginning_of_day
     from  = (to - 6.day).at_end_of_day
     @books = Book.all.sort {|a,b|
